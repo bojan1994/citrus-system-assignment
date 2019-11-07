@@ -8,7 +8,7 @@ USAGE
   
   composer install
   
-- Application should be placed in Apache root directory (Ubuntu example):
+- Application should be placed in Apache server root directory (Ubuntu example):
 
   /var/www/html/
   
@@ -16,9 +16,9 @@ USAGE
   
 - Project also contains a sql file which already contains products and one admin user
 
-- Import sql file
+- Import sql file to MySQL Server
 
-- MySql credentials should be changed in app/Config/Database.php file on line 19:
+- MySQL credentials should be changed in app/Config/Database.php file on line 19:
 
   self::$_db = new \PDO('mysql:host=localhost;dbname=catalog','bojan','bojan1994');
   
