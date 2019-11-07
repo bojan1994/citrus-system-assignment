@@ -1,0 +1,19 @@
+{
+    "name": "bojan/assignment",
+    "description": "Assigment for Citrus Systems",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Bojan Mihajlovic",
+            "email": "b.mihajlovic1994@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
