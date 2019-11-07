@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 07, 2019 at 08:56 PM
+-- Generation Time: Nov 07, 2019 at 09:17 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -52,18 +52,6 @@ CREATE TABLE `comments` (
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
   `published` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `name`, `email`, `comment`, `published`) VALUES
-(1, 'Test', 'test@test.test', 'Test', 1),
-(2, 'Test2', 'test2@test.test', 'test', 1),
-(3, 'NOVO', 'novo@novo.novo', 'novo\r\n', 1),
-(4, 'novo2', 'novo@novo.novo', 'nasdasdas', 1),
-(5, 'test', 'test@test.test', 'test', 1),
-(6, 'test2', 'test2@test.test', 'test2', 1);
 
 -- --------------------------------------------------------
 
@@ -128,7 +116,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `products`
 --
