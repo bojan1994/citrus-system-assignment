@@ -27,6 +27,7 @@ USAGE
 - Admin credentials are 
 
   username: admin
+  
   password: admin123
   
 - On homepage all products are visible, below that is form for posting a comment
