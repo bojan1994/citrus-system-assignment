@@ -12,7 +12,7 @@ USAGE
 
   /var/www/html/
   
-- If, for some reason, Application is not placed in root directory, changes are required in .htaccess file
+- If, for some reason, Application is not placed in root directory, rewrite base need to be changed in .htaccess file
 
 - index.php file is entry point for every request entering the application, so mod_rewrite should be enabled in Apache configuration
   
