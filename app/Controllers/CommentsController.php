@@ -24,7 +24,5 @@ class CommentsController
     public function store()
     {
         $this->comment->create($_POST['name'], $_POST['email'], $_POST['comment']);
-
-        header('Location: /');
     }
 }

@@ -54,8 +54,6 @@ class AdminController extends ViewController
     public function logout()
     {
         $this->admin->logout();
-
-        header('Location: /admin');
     }
 
     /**
@@ -64,7 +62,5 @@ class AdminController extends ViewController
     public function publishComment()
     {
         $this->comment->publish($_POST['commentId']);
-
-        header('Location: /dashboard');
     }
 }

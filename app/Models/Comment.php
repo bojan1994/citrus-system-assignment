@@ -40,6 +40,7 @@ class Comment
         $st->bindParam(2, $email);
         $st->bindParam(3, $message);
         $st->execute();
+        header('Location: /');
     }
 
     /**
@@ -70,5 +71,6 @@ class Comment
         $st = $conn->prepare('UPDATE comments SET published = 1 WHERE id = ?');
         $st->bindParam(1, $commentId);
         $st->execute();
+        header('Location: /dashboard');
     }
 }
