@@ -3,34 +3,40 @@
 use App\Controllers\AppController;
 use App\Controllers\CommentsController;
 use App\Controllers\AdminController;
+use App\Models\Admin;
+use App\Models\Product;
+use App\Models\Comment;
 
 $request = $_SERVER['REQUEST_URI'];
 
-$app = new AppController();
-$comment = new CommentsController();
-$admin = new AdminController();
+$appController = new AppController();
+$commentController = new CommentsController();
+$adminController = new AdminController();
+$admin = new Admin();
+$product = new Product();
+$comment = new Comment;
 
 switch ($request) {
     case '/' :
-        $app->index();
+        $appController->index($product, $comment);
         break;
     case '/comment' :
-        $comment->store();
+        $commentController->store($comment);
         break;
     case '/admin' :
-        $admin->index();
+        $adminController->index();
         break;
     case '/login' :
-        $admin->login();
+        $adminController->login($admin);
         break;
     case '/dashboard' :
-        $admin->dashboard();
+        $adminController->dashboard($admin, $comment);
         break;
     case '/logout' :
-        $admin->logout();
+        $adminController->logout($admin);
         break;
     case '/publish' :
-        $admin->publishComment();
+        $adminController->publishComment($comment);
         break;
     default:
         http_response_code(404);

@@ -9,16 +9,10 @@ use App\Models\Comment;
 
 class AdminController extends ViewController
 {
-    protected $admin, $comment;
-
     /**
-     * AdminController constructor.
+     * @var $comments
      */
-    public function __construct()
-    {
-        $this->admin = new Admin();
-        $this->comment = new Comment();
-    }
+    protected $comments;
 
     /**
      * Showing the admin login page
@@ -30,37 +24,46 @@ class AdminController extends ViewController
 
     /**
      * Checking if admins credentials are correct
+     *
+     * @param Admin $admin
      */
-    public function login()
+    public function login(Admin $admin)
     {
-        $this->admin->authenticate($_POST['username'], md5($_POST['password']));
+        $admin->authenticate($_POST['username'], md5($_POST['password']));
     }
 
     /**
      * Showing the dashboard page if admin is logged in
+     *
+     * @param Admin $admin
+     * @param Comment $comment
      */
-    public function dashboard()
+    public function dashboard(Admin $admin, Comment $comment)
     {
-        $this->admin->loggedIn();
+        $admin->loggedIn();
 
-        $this->comments = $this->comment->forPublishing();
+        $this->comments = $comment->forPublishing();
 
         $this->getView('dashboard');
     }
 
     /**
      * Logging out
+     *
+     * @param Admin $admin
      */
-    public function logout()
+    public function logout(Admin $admin)
     {
-        $this->admin->logout();
+        $admin->logout();
     }
 
     /**
      * Publishing comments
+     *
+     * @param Comment $comment
      */
-    public function publishComment()
+    public function publishComment(Comment $comment)
     {
-        $this->comment->publish($_POST['commentId']);
+        $comment->publish($_POST['commentId']);
     }
 }

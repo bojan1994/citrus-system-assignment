@@ -9,25 +9,23 @@ use App\Models\Product;
 
 class AppController extends ViewController
 {
-    protected $product, $comment;
-
     /**
-     * AppController constructor.
+     * @var $products
+     * @var $comments
      */
-    public function __construct()
-    {
-        $this->product = new Product();
-        $this->comment = new Comment();
-    }
+    protected $products, $comments;
 
     /**
      * Showing the products page
+     *
+     * @param Product $product
+     * @param Comment $comment
      */
-    public function index()
+    public function index(Product $product, Comment $comment)
     {
-        $this->products = $this->product->fetch();
+        $this->products = $product->fetch();
 
-        $this->comments = $this->comment->fetch();
+        $this->comments = $comment->fetch();
 
         $this->getView('home');
     }

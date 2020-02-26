@@ -8,21 +8,13 @@ use App\Models\Comment;
 
 class CommentsController
 {
-    protected $comment;
-
-    /**
-     * CommentsController constructor.
-     */
-    public function __construct()
-    {
-        $this->comment = new Comment();
-    }
-
     /**
      * Storing new comments into database
+     *
+     * @param Comment $comment
      */
-    public function store()
+    public function store(Comment $comment)
     {
-        $this->comment->create($_POST['name'], $_POST['email'], $_POST['comment']);
+        $comment->create($_POST['name'], $_POST['email'], $_POST['comment']);
     }
 }
